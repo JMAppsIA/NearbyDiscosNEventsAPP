@@ -6,7 +6,7 @@ android {
     viewBinding.enabled = true
     defaultConfig {
         applicationId "com.example.nearbydiscosnevents"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -35,4 +35,6 @@ dependencies {
 
     //Custom Loader
     implementation 'com.tuyenmonkey:mkloader:1.4.0'
+    //CardView
+    implementation 'androidx.cardview:cardview:1.0.0'
 }

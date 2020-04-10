@@ -1,12 +1,16 @@
 package com.example.nearbydiscosnevents;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.nearbydiscosnevents.Utils.LoadingDialog;
 
 /**
  *
@@ -21,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     private static Button btnIngresar;
     private static TextView txtRegistrar;
+    private static LoadingDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
 
         txtRegistrar = findViewById(R.id.tvCreateAccountLogin);
         btnIngresar = findViewById(R.id.btnLogin);
-
+        loadingDialog = new LoadingDialog(LoginActivity.this);
         txtRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,10 +47,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                loadingDialog.startLoadingDialog();
+
             }
         });
 
     }
+
 
     private void abrirRegistro() {
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
