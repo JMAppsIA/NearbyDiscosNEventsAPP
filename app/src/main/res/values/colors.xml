@@ -5,4 +5,7 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="hint_color_primary">#63FFFFFF</color>
     <color name="secondary_color">#5A7BEF</color>
+    <color name="selected_color">#14D2B8</color>
+    <color name="unselected_color_menu">#140F26</color>
+
 </resources>

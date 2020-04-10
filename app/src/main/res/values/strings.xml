@@ -17,4 +17,8 @@
     <string name="register_button_text">Registrarme</string>
     <string name="already_registered">Ya tienes una cuenta? Ingresa</string>
     <string name="loading">Procesando</string>
+    <string name="home_nav">Inicio</string>
+    <string name="search_nav">Buscar</string>
+    <string name="profile_nav">Perfil</string>
+    <string name="more_nav">Mas</string>
 </resources>

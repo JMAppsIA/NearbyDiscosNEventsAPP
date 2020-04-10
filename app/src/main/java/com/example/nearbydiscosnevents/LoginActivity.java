@@ -1,16 +1,15 @@
 package com.example.nearbydiscosnevents;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.nearbydiscosnevents.Utils.LoadingDialog;
+import com.example.nearbydiscosnevents.Utils.CustomDialog;
 
 /**
  *
@@ -25,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
      */
     private static Button btnIngresar;
     private static TextView txtRegistrar;
-    private static LoadingDialog loadingDialog;
+    private static CustomDialog loadingDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         txtRegistrar = findViewById(R.id.tvCreateAccountLogin);
         btnIngresar = findViewById(R.id.btnLogin);
-        loadingDialog = new LoadingDialog(LoginActivity.this);
+        loadingDialog = new CustomDialog(LoginActivity.this);
         txtRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,12 +45,25 @@ public class LoginActivity extends AppCompatActivity {
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                loadingDialog.startLoadingDialog();
-
+                String source = "LOGIN";
+                loadingDialog.startLoadingDialog(source);
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadingDialog.dismissLoadingDialog();
+                        abrirHome();
+                    }
+                },3000);
             }
         });
 
+    }
+
+    private void abrirHome() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        LoginActivity.this.startActivity(intent);
+        finish();
     }
 
 
