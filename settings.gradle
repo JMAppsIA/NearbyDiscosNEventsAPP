@@ -1,0 +1,2 @@
+rootProject.name='NearbyDiscosNEvents'
+include ':app'

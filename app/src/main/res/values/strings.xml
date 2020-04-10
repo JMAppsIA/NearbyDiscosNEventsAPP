@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">NearbyDiscosNEvents</string>
+    <string name="username_login_hint">Correo electronico o celular</string>
+    <string name="pass_login_hint">Password</string>
+    <string name="or_text">o prueba</string>
+    <string name="btn_facebook_login_text">Ingresar con Facebook</string>
+    <string name="login_button_text">Ingresar</string>
+    <string name="crear_cuenta">Crear cuenta</string>
+    <string name="olvidaste_tus_datos">Olvidaste tus datos?</string>
+</resources>
