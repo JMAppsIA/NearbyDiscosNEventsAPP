@@ -34,7 +34,7 @@
                 android:inputType="textEmailAddress"
                 android:paddingEnd="30dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="#7B575454"
+                android:textColorHint="@color/hint_color_primary"
                 android:autofillHints="" />
 
             <CheckBox
@@ -67,7 +67,7 @@
                 android:inputType="textPassword"
                 android:paddingEnd="30dp"
                 android:textColor="@android:color/white"
-                android:textColorHint="#7B575454" />
+                android:textColorHint="@color/hint_color_primary" />
 
             <CheckBox
                 android:id="@+id/btnShowHidePassword"
