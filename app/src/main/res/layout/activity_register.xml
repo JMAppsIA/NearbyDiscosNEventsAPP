@@ -35,7 +35,7 @@
             />
 
         <EditText
-            android:background="@drawable/rounded_edittext_2"
+            android:background="@drawable/rounded_edittext"
             android:textAllCaps="true"
             android:gravity="center"
             android:inputType="text"
@@ -47,7 +47,7 @@
             />
 
         <EditText
-            android:background="@drawable/rounded_edittext_2"
+            android:background="@drawable/rounded_edittext"
             android:textAllCaps="true"
             android:gravity="center"
             android:inputType="text"
@@ -60,7 +60,7 @@
             />
 
         <EditText
-            android:background="@drawable/rounded_edittext_2"
+            android:background="@drawable/rounded_edittext"
             android:textAllCaps="true"
             android:gravity="center"
             android:inputType="text"
@@ -73,7 +73,7 @@
             />
 
         <EditText
-            android:background="@drawable/rounded_edittext_2"
+            android:background="@drawable/rounded_edittext"
             android:textAllCaps="true"
             android:gravity="center"
             android:inputType="text"
@@ -86,7 +86,7 @@
             />
 
         <EditText
-            android:background="@drawable/rounded_edittext_2"
+            android:background="@drawable/rounded_edittext"
             android:textAllCaps="true"
             android:gravity="center"
             android:inputType="text"
@@ -99,7 +99,7 @@
             />
 
         <EditText
-            android:background="@drawable/rounded_edittext_2"
+            android:background="@drawable/rounded_edittext"
             android:textAllCaps="true"
             android:gravity="center"
             android:inputType="text"
@@ -122,7 +122,7 @@
                 android:id="@+id/edtPasswprd"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/rounded_edittext_2"
+                android:background="@drawable/rounded_edittext"
                 android:gravity="center"
                 android:hint="@string/pass_login_hint"
                 android:imeOptions="actionDone"
@@ -157,10 +157,12 @@
             />
 
         <TextView
+            android:id="@+id/tvGoToLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
+            android:textColor="@android:color/white"
             android:textAllCaps="true"
             android:text="@string/already_registered" />
 
