@@ -16,16 +16,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nearbydiscosnevents.Adapters.EventsAdapter;
 import com.example.nearbydiscosnevents.R;
+import com.example.nearbydiscosnevents.Retrofit.IAPI;
+import com.example.nearbydiscosnevents.Utils.Common;
 
 public class MainFragment extends Fragment {
 
     RecyclerView recyclerView;
     EventsAdapter eventsAdapter;
+    IAPI mService;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Log.d("abc", "abc");
+
+        mService = Common.getAPI();
         View view = inflater.inflate(R.layout.fragment_main,container,false);
         recyclerView = view.findViewById(R.id.rvMainFragment);
         eventsAdapter = new EventsAdapter(view.getContext());

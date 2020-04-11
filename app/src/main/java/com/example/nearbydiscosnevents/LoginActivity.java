@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.nearbydiscosnevents.Retrofit.IAPI;
+import com.example.nearbydiscosnevents.Utils.Common;
 import com.example.nearbydiscosnevents.Utils.CustomDialog;
 
 /**
@@ -25,11 +27,13 @@ public class LoginActivity extends AppCompatActivity {
     private static Button btnIngresar;
     private static TextView txtRegistrar;
     private static CustomDialog loadingDialog;
-
+    private IAPI mService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        mService = Common.getAPI();
 
         txtRegistrar = findViewById(R.id.tvCreateAccountLogin);
         btnIngresar = findViewById(R.id.btnLogin);

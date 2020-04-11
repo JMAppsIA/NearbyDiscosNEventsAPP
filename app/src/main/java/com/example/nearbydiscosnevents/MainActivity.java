@@ -13,6 +13,8 @@ import com.example.nearbydiscosnevents.Fragments.MainFragment;
 import com.example.nearbydiscosnevents.Fragments.MoreFragment;
 import com.example.nearbydiscosnevents.Fragments.ProfileFragment;
 import com.example.nearbydiscosnevents.Fragments.SearchFragment;
+import com.example.nearbydiscosnevents.Retrofit.IAPI;
+import com.example.nearbydiscosnevents.Utils.Common;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         bottomNavigationView = findViewById(R.id.bnvMain);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
