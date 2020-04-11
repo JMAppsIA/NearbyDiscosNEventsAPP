@@ -11,6 +11,10 @@ android {
         versionCode 1
         versionName "1.0"
 
+        dataBinding {
+            enabled = false
+        }
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -37,4 +41,8 @@ dependencies {
     implementation 'com.tuyenmonkey:mkloader:1.4.0'
     //CardView
     implementation 'androidx.cardview:cardview:1.0.0'
+
+    //skeleton + shimmer loader
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
 }

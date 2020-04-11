@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+
 import com.example.nearbydiscosnevents.Fragments.MainFragment;
 import com.example.nearbydiscosnevents.Fragments.MoreFragment;
 import com.example.nearbydiscosnevents.Fragments.ProfileFragment;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
                     switch (menuItem.getItemId()) {
                         case R.id.nav_newsfeed: {
-                            selectedFragment = new MainFragment();
+                           selectedFragment = new MainFragment();
                             break;
                         }
                         case R.id.nav_search: {
