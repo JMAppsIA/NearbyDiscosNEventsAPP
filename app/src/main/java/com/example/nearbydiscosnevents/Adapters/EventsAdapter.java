@@ -16,7 +16,7 @@ import com.example.nearbydiscosnevents.ViewHolder.EventsViewHolder;
 public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
 
     public boolean showShimmer = true;
-    public int SHIMMER_ITEM_NUMBER = 1; // number of shimmer items shown while loading.
+    public int SHIMMER_ITEM_NUMBER = 12; // number of shimmer items shown while loading.
     private Context context;
 
     public EventsAdapter(Context context) {
@@ -41,20 +41,23 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
             holder.shimmerFrameLayout.stopShimmer(); // Stops shimmer animation
             holder.shimmerFrameLayout.setShimmer(null); // it removes shimmer overlay
 
-            holder.btnRank.setVisibility(View.VISIBLE);
+            holder.btnRankTwo.setBackground(ContextCompat.getDrawable(context, R.drawable.custom_button_pink));
+            holder.btnRankTwo.setText(R.string.ranking_detail);
+            holder.btnRankTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_star, 0);
 
-            holder.tvTitle.setBackground(null);
-            holder.tvTitle.setText("Evento numero uno");
+            holder.btnPriceDTwo.setBackground(ContextCompat.getDrawable(context,R.drawable.rounded_custom_price));
+            holder.btnPriceDTwo.setText(R.string.price_detail);
 
-            holder.relativeLayoutImage.setBackground(ContextCompat.getDrawable(context, R.drawable.register_bg));
-            holder.relativeLayoutRanking.setBackground(ContextCompat.getDrawable(context, R.drawable.custom_button_pink));
-            holder.checkBoxFavorites.setVisibility(View.VISIBLE);
+            holder.checkBoxFavoritesTwo.setVisibility(View.VISIBLE);
+
+            holder.RLMainFragmentItemViewTwo.setBackground(ContextCompat.getDrawable(context, R.drawable.image));
+
         }
 
     }
 
     @Override
     public int getItemCount() {
-        return showShimmer?SHIMMER_ITEM_NUMBER:1; //after loading shows list SIZE (1);
+        return showShimmer?SHIMMER_ITEM_NUMBER:12; //after loading shows list SIZE (1);
     }
 }

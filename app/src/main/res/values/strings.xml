@@ -22,4 +22,8 @@
     <string name="profile_nav">Perfil</string>
     <string name="more_nav">Mas</string>
     <string name="mountain_resort">Mountain Resort</string>
+    <string name="address_example">Waikiki, 4.5 km from center</string>
+    <string name="mini_detail_event">Ocean View 1 king Bed \n No prepayment</string>
+    <string name="price_detail">S/. 850</string>
+    <string name="ranking_detail">4.5</string>
 </resources>

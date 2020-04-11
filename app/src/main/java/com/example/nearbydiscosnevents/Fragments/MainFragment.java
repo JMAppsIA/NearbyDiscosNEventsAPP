@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,8 +29,9 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main,container,false);
         recyclerView = view.findViewById(R.id.rvMainFragment);
         eventsAdapter = new EventsAdapter(view.getContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
-        recyclerView.hasFixedSize();
+        // recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL, false));
+        recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(),2));
+        recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(eventsAdapter);
 
         new Handler().postDelayed(new Runnable() {
