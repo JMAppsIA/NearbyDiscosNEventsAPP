@@ -1,5 +1,6 @@
 package com.example.nearbydiscosnevents.Utils;
 
+import com.example.nearbydiscosnevents.Models.User;
 import com.example.nearbydiscosnevents.Retrofit.IAPI;
 import com.example.nearbydiscosnevents.Retrofit.RetrofitClient;
 
@@ -7,9 +8,10 @@ public class Common {
     //En emulador localhost es 10.0.2.2
     //public static final String URL_BASE = "http://jorge.hospedandoperu.com/upndocentes/";
     // public static final String URL_BASE = "http://upndocentes.jorge.hospedandoperu.com/upndocentes/";
-    public static final String URL_BASE = "http://localhost:3000/";
+    public static final String URL_BASE = "http://192.168.1.62:3000/";
+    public static final int API_KEY = 1234;
 
-    // public static Usuario usuarioActual = null;
+    public static User usuarioActual = null;
     /*
     public static Evento eventoActual = null;
     public static Docente docenteActual = null;

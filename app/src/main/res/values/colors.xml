@@ -4,7 +4,8 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="hint_color_primary">#63FFFFFF</color>
-    <color name="secondary_color">#5A7BEF</color>
+    <color name="primary_color">#5A7BEF</color>
+    <color name="secondary_color">#4048EF</color>
     <color name="selected_color">#14D2B8</color>
     <color name="unselected_color_menu">#140F26</color>
     <color name="button_secondary_color">#FF6161</color>
@@ -13,5 +14,9 @@
     <color name="third_color">#999999</color>
     <color name="fourth_color">#393939</color>
     <color name="fifth_color">#434343</color>
+    <color name="disabled_text">#D4D5E8</color>
+
+    <color name="primary_color_material_edit_text">#0a091b</color>
+    <color name="secondary_color_material_edit_text">#070716</color>
 
 </resources>

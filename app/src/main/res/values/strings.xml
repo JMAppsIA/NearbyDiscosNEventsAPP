@@ -26,4 +26,16 @@
     <string name="mini_detail_event">Ocean View 1 king Bed \n No prepayment</string>
     <string name="price_detail">S/. 850</string>
     <string name="ranking_detail">4.5</string>
+    <string name="followed">Seguidores</string>
+    <string name="followers">Seguidores</string>
+    <string name="description_first_register_step">Empieza Ingresando</string>
+    <string name="description_two_first_registration_step">Empieza Ingresando \ntus datos personales</string>
+    <string name="register_first_step">Empezar</string>
+    <string name="text_step_one">1</string>
+    <string name="text_step_two">2</string>
+    <string name="Datos_personales">Datos personales</string>
+    <string name="datos_de_usuario">Ahora crea tu cuenta!</string>
+    <string name="btn_second_step_text">Crear cuenta</string>
+    <string name="c_mo_te_llamas">¿Cómo te llamas?</string>
+    <string name="document_number">Numero de documento</string>
 </resources>
