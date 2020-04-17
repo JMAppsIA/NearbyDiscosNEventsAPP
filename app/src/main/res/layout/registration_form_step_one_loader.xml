@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    android:id="@+id/cardViewRegisterFirstStep"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -38,7 +40,7 @@
             app:ms_arrowSize="16dp"
             app:ms_floatingLabelColor="@color/primary_color_material_edit_text"
             app:ms_floatingLabelText="Tipo de Documento"
-            app:ms_hint="Seleccione"
+            app:ms_hint="Seleccione Tipo de Documento"
             app:ms_hintColor="@color/secondary_color_material_edit_text"
             />
 
@@ -47,68 +49,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/document_number"
-        android:inputType="text"
+        android:inputType="number"
         android:textColor="@color/secondary_color_material_edit_text"
         android:textColorHint="@color/secondary_color_material_edit_text"
         android:textSize="20sp"
-
         app:met_singleLineEllipsis="true"
         app:met_baseColor="@color/secondary_color_material_edit_text"
         app:met_floatingLabel="highlight"
         app:met_primaryColor="@color/primary_color_material_edit_text"
         />
 
-        <LinearLayout
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/metBirthDatePersonalData"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="3"
-            >
+            android:hint="@string/Fecha_de_nacimiento"
+            android:inputType="date"
+            android:textColor="@color/secondary_color_material_edit_text"
+            android:textColorHint="@color/secondary_color_material_edit_text"
+            android:textSize="20sp"
 
+            app:met_singleLineEllipsis="true"
+            app:met_baseColor="@color/secondary_color_material_edit_text"
+            app:met_floatingLabel="highlight"
+            app:met_primaryColor="@color/primary_color_material_edit_text"
+            />
 
-            <fr.ganfra.materialspinner.MaterialSpinner
-                android:id="@+id/spinnerDayBirthDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:ms_multiline="true"
-                app:ms_arrowColor="@color/primary_color"
-                app:ms_arrowSize="16dp"
-                app:ms_floatingLabelColor="@color/primary_color_material_edit_text"
-                app:ms_floatingLabelText="Dia Nacimiento"
-                app:ms_hint="Seleccione"
-                app:ms_hintColor="@color/secondary_color_material_edit_text"
-                />
-
-            <fr.ganfra.materialspinner.MaterialSpinner
-                android:id="@+id/spinnerMonthBirthDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:ms_multiline="true"
-                app:ms_arrowColor="@color/primary_color"
-                app:ms_arrowSize="16dp"
-                app:ms_floatingLabelColor="@color/primary_color_material_edit_text"
-                app:ms_floatingLabelText="Mes Nacimiento"
-                app:ms_hint="Seleccione"
-                app:ms_hintColor="@color/secondary_color_material_edit_text"
-                />
-
-            <fr.ganfra.materialspinner.MaterialSpinner
-                android:id="@+id/spinnerYearBirthDate"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                app:ms_multiline="true"
-                app:ms_arrowColor="@color/primary_color"
-                app:ms_arrowSize="16dp"
-                app:ms_floatingLabelColor="@color/primary_color_material_edit_text"
-                app:ms_floatingLabelText="Anio Nacimiento"
-                app:ms_hint="Seleccione"
-                app:ms_hintColor="@color/secondary_color_material_edit_text"
-                />
-
-        </LinearLayout>
 
         <com.rengwuxian.materialedittext.MaterialEditText
             android:id="@+id/metAddressPersonalData"
@@ -134,7 +100,7 @@
             app:ms_arrowColor="@color/primary_color"
             app:ms_arrowSize="16dp"
             app:ms_floatingLabelColor="@color/primary_color_material_edit_text"
-            app:ms_floatingLabelText="Tipo de Documento"
+            app:ms_floatingLabelText="Genero"
             app:ms_hint="Seleccione"
             app:ms_hintColor="@color/secondary_color_material_edit_text"
             />

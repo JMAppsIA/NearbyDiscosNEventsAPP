@@ -1,19 +1,25 @@
 package com.example.nearbydiscosnevents.Models.Response;
 
-import com.example.nearbydiscosnevents.Models.User;
+public class ResponseCreateUser {
 
-import java.util.List;
-
-public class ResponseLoginUser {
     private int httpCode;
     private boolean status;
-    private List<User> message;
+    private String message;
+
+    public ResponseCreateUser() {
+    }
+
+    public ResponseCreateUser(int httpCode, boolean status, String message) {
+        this.httpCode = httpCode;
+        this.status = status;
+        this.message = message;
+    }
 
     public int getHttpCode() {
         return httpCode;
     }
 
-    public void setHttpCode(int httpCode) {
+    public void setHttpCode(int httpCode){
         this.httpCode = httpCode;
     }
 
@@ -25,11 +31,11 @@ public class ResponseLoginUser {
         this.status = status;
     }
 
-    public List<User> getMessage() {
+    public String getMessage() {
         return message;
     }
 
-    public void setMessage(List<User> message) {
+    public void setMessage(String message) {
         this.message = message;
     }
 }

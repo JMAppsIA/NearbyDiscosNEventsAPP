@@ -89,8 +89,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String source = "LOGIN";
-                String message = "";
-                loadingDialog.startLoadingDialog(source,message);
+                loadingDialog.startLoadingDialog(source);
 
                 if(TextUtils.isEmpty(txtUser.getText().toString())){
                     loadingDialog.dismissLoadingDialog();
@@ -120,8 +119,8 @@ public class LoginActivity extends AppCompatActivity {
                     mService.LoginUser(myreqbody).enqueue(new Callback<ResponseLoginUser>() {
                         @Override
                         public void onResponse(Call<ResponseLoginUser> call, Response<ResponseLoginUser> response) {
+                            Log.i("response.body().getMessage().get(0)",response.body().getMessage().get(0).toString());
                             loadingDialog.dismissLoadingDialog();
-                            List<User> movies = response.body().getMessage();
                             Common.usuarioActual = response.body().getMessage().get(0);
                             abrirHome();
 
@@ -129,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         @Override
                         public void onFailure(Call<ResponseLoginUser> call, Throwable t) {
-
+                            Log.e("Failed Login",t.toString());
                         }
                     });
 

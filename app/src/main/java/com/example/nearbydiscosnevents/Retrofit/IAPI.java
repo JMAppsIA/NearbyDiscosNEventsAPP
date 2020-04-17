@@ -1,7 +1,9 @@
 package com.example.nearbydiscosnevents.Retrofit;
 
 import com.example.nearbydiscosnevents.Models.Request.LoginUser.LoginUserRequest;
+import com.example.nearbydiscosnevents.Models.Response.ResponseCreateUser;
 import com.example.nearbydiscosnevents.Models.Response.ResponseDocumentType;
+import com.example.nearbydiscosnevents.Models.Response.ResponseGenreType;
 import com.example.nearbydiscosnevents.Models.Response.ResponseLoginUser;
 import com.example.nearbydiscosnevents.Models.Event;
 
@@ -20,7 +22,9 @@ import retrofit2.http.POST;
 
 public interface IAPI {
 
-
+    @POST("usuario/crear")
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    Call<ResponseCreateUser> createUser(@Body RequestBody request);
 
     @POST("usuario/login")
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
@@ -29,6 +33,10 @@ public interface IAPI {
     @POST("documento/tipo/obtener")
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     Call<ResponseDocumentType> obtainDocumentTypes(@Body RequestBody request);
+
+    @POST("genero/tipo/obtener")
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    Call<ResponseGenreType> obtainGenreTypes(@Body RequestBody request);
 
     @FormUrlEncoded
     @POST("eventos/destacados/obtener")

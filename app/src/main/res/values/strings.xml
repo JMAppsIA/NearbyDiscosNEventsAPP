@@ -38,4 +38,6 @@
     <string name="btn_second_step_text">Crear cuenta</string>
     <string name="c_mo_te_llamas">¿Cómo te llamas?</string>
     <string name="document_number">Numero de documento</string>
+    <string name="Fecha_de_nacimiento">Fecha de Nacimiento</string>
+    <string name="username_register">Nombre de usuario</string>
 </resources>
