@@ -6,6 +6,7 @@ import com.example.nearbydiscosnevents.Models.Response.ResponseDocumentType;
 import com.example.nearbydiscosnevents.Models.Response.ResponseGenreType;
 import com.example.nearbydiscosnevents.Models.Response.ResponseLoginUser;
 import com.example.nearbydiscosnevents.Models.Event;
+import com.example.nearbydiscosnevents.Models.Response.ResponseObtainLocals;
 
 import org.json.JSONObject;
 
@@ -38,9 +39,9 @@ public interface IAPI {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     Call<ResponseGenreType> obtainGenreTypes(@Body RequestBody request);
 
-    @FormUrlEncoded
-    @POST("eventos/destacados/obtener")
-    Call<List<Event>> LoadOutstandingEvents();
+    @POST("locales/obtener")
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    Call<ResponseObtainLocals> obtainLocals(@Body RequestBody request);
 
     @FormUrlEncoded
     @POST("eventos/destalle/obtener")
