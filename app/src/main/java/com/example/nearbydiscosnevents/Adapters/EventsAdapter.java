@@ -1,11 +1,14 @@
 package com.example.nearbydiscosnevents.Adapters;
 
+import android.app.ActionBar;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,8 +43,12 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
         } else {
             holder.shimmerFrameLayout.stopShimmer(); // Stops shimmer animation
             holder.shimmerFrameLayout.setShimmer(null); // it removes shimmer overlay
+            holder.rlImage.setBackground(ContextCompat.getDrawable(context,R.drawable.event_bg));
+            holder.tvTitle.getLayoutParams().width = RelativeLayout.LayoutParams.WRAP_CONTENT;
+            holder.tvTitle.setBackground(null);
+            holder.tvTitle.setText("Evento Numero Uno Abc");
 
-            holder.btnRankTwo.setBackground(ContextCompat.getDrawable(context, R.drawable.custom_button_pink));
+            /*holder.btnRankTwo.setBackground(ContextCompat.getDrawable(context, R.drawable.custom_button_pink));
             holder.btnRankTwo.setText(R.string.ranking_detail);
             holder.btnRankTwo.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_star, 0);
 
@@ -50,7 +57,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
 
             holder.checkBoxFavoritesTwo.setVisibility(View.VISIBLE);
 
-            holder.RLMainFragmentItemViewTwo.setBackground(ContextCompat.getDrawable(context, R.drawable.image));
+            holder.RLMainFragmentItemViewTwo.setBackground(ContextCompat.getDrawable(context, R.drawable.image));*/
 
         }
 

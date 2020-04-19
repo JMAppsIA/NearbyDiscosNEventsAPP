@@ -1,11 +1,14 @@
 package com.example.nearbydiscosnevents.Fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -34,10 +37,11 @@ public class MainFragment extends Fragment {
         recyclerView = view.findViewById(R.id.rvMainFragment);
         eventsAdapter = new EventsAdapter(view.getContext());
         // recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL, false));
-        recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(),2));
+        // recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(),2));
+        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL, false));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(eventsAdapter);
-
+        startLayoutAnimation(recyclerView);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -48,5 +52,45 @@ public class MainFragment extends Fragment {
 
         return view;
 
+    }
+
+    private void getListaDocentes(String idfacultad) {
+
+       /* mService.loadAvailableEvents()
+                .enqueue(new Callback<List<Docente>>() {
+                    @Override
+                    public void onResponse(Call<List<Docente>> call, Response<List<Docente>> response) {
+
+                        llDocentes.setVisibility(View.GONE);
+                        listaDocentes.setVisibility(View.VISIBLE);
+                        mostrarLista(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Docente>> call, Throwable t) {
+                        listaDocentes.setVisibility(View.GONE);
+                        llDocentes.setVisibility(View.VISIBLE);
+                        Toast.makeText(DocentesActivity.this, "No hay Docentes.", Toast.LENGTH_SHORT).show();
+                    }
+                });*/
+
+
+
+    }
+
+   /* private void mostrarLista(List<Docente> docentes) {
+
+        DocenteAdaptador adaptador = new DocenteAdaptador(this,docentes);
+        listaDocentes.setAdapter(adaptador);
+    }*/
+
+
+    private void startLayoutAnimation (RecyclerView recyclerView) {
+        Context context = recyclerView.getContext();
+
+        LayoutAnimationController layoutAnimationController = AnimationUtils.loadLayoutAnimation(context,R.anim.layout_animation_fall_down);
+        recyclerView.setLayoutAnimation(layoutAnimationController);
+        recyclerView.getAdapter().notifyDataSetChanged();
+        recyclerView.scheduleLayoutAnimation();
     }
 }

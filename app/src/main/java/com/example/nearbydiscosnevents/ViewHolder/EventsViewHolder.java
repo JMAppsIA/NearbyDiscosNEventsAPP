@@ -15,20 +15,24 @@ import com.facebook.shimmer.ShimmerFrameLayout;
 public class EventsViewHolder extends RecyclerView.ViewHolder {
 
     public ShimmerFrameLayout shimmerFrameLayout;
+    public RelativeLayout rlImage;
+    public TextView tvTitle;
 
-    public Button btnRankTwo,btnPriceDTwo;
+    /*public Button btnRankTwo,btnPriceDTwo;
     public CheckBox checkBoxFavoritesTwo;
-    public RelativeLayout RLMainFragmentItemViewTwo;
+    public RelativeLayout RLMainFragmentItemViewTwo;*/
 
     public EventsViewHolder(@NonNull View itemView) {
         super(itemView);
 
         shimmerFrameLayout = itemView.findViewById(R.id.shimmer_layout_main);
+        rlImage = itemView.findViewById(R.id.rlEventImage);
+        tvTitle = itemView.findViewById(R.id.tvTitleEvent);
 
-        RLMainFragmentItemViewTwo = itemView.findViewById(R.id.RLMainFragmentItemView);
+        /*RLMainFragmentItemViewTwo = itemView.findViewById(R.id.RLMainFragmentItemView);
         btnRankTwo = itemView.findViewById(R.id.btnRankingTwo);
         btnPriceDTwo = itemView.findViewById(R.id.btnPriceTwo);
-        checkBoxFavoritesTwo = itemView.findViewById(R.id.btnFavoriteButtonTwo);
+        checkBoxFavoritesTwo = itemView.findViewById(R.id.btnFavoriteButtonTwo);*/
     }
 
 

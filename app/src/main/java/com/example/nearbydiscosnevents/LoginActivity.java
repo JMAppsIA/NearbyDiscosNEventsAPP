@@ -2,6 +2,7 @@ package com.example.nearbydiscosnevents;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -28,6 +29,7 @@ import com.google.gson.GsonBuilder;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 import io.reactivex.Observable;
@@ -39,6 +41,8 @@ import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  *
@@ -63,9 +67,21 @@ public class LoginActivity extends AppCompatActivity {
     CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/arkhip_font.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build()
+        );
         setContentView(R.layout.activity_login);
+
+
 
         mService = Common.getAPI();
 
@@ -119,16 +135,25 @@ public class LoginActivity extends AppCompatActivity {
                     mService.LoginUser(myreqbody).enqueue(new Callback<ResponseLoginUser>() {
                         @Override
                         public void onResponse(Call<ResponseLoginUser> call, Response<ResponseLoginUser> response) {
-                            Log.i("response.body().getMessage().get(0)",response.body().getMessage().get(0).toString());
                             loadingDialog.dismissLoadingDialog();
-                            Common.usuarioActual = response.body().getMessage().get(0);
-                            abrirHome();
+                            if(response.body().getMessage().get(0).getPersonId() != null) {
+                                Common.usuarioActual = response.body().getMessage().get(0);
+                                abrirHome();
+                            } else {
+                                Snackbar.make(RelativeLogin,"Usuario o contrasena incorrectos.",Snackbar.LENGTH_LONG).show();
+                            }
+
+
 
                         }
 
                         @Override
                         public void onFailure(Call<ResponseLoginUser> call, Throwable t) {
-                            Log.e("Failed Login",t.toString());
+                            Log.e("Failed Login",t.getMessage().toString());
+                            loadingDialog.dismissLoadingDialog();
+                            if(t.getMessage().contains("failed to connect")) {
+                                Snackbar.make(RelativeLogin,"Estamos presentando inconvenientes. Por favor, reintenta en unos minutos.",Snackbar.LENGTH_LONG).show();
+                            }
                         }
                     });
 

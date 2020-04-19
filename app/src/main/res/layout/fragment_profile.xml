@@ -6,7 +6,10 @@
     android:background="@drawable/register_bg"
     android:orientation="vertical">
 
-
+    <TextView
+        android:id="@+id/tvTitleFragmentProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>
