@@ -65,7 +65,7 @@ dependencies {
     //Material Spinner
     implementation 'com.github.ganfra:material-spinner:2.0.0'
 
-    implementation'com.google.android.material:material:1.2.0-alpha03'
+    implementation 'com.google.android.material:material:1.2.0-alpha03'
 
     //Calligraphy
     implementation 'uk.co.chrisjenx:calligraphy:2.3.0'

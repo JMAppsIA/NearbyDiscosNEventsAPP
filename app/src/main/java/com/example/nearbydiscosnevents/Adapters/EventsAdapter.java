@@ -1,7 +1,9 @@
 package com.example.nearbydiscosnevents.Adapters;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.nearbydiscosnevents.Fragments.MainFragment;
+import com.example.nearbydiscosnevents.LocalDetailActivity;
 import com.example.nearbydiscosnevents.Models.Local;
 import com.example.nearbydiscosnevents.Models.Response.ResponseObtainLocals;
 import com.example.nearbydiscosnevents.R;
@@ -25,7 +28,7 @@ import java.util.List;
 
 public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
 
-    public boolean showShimmer = true;
+    public boolean dataLoaded = true;
     public int SHIMMER_ITEM_NUMBER = 4; // number of shimmer items shown while loading.
     private Context context;
     ResponseObtainLocals locales;
@@ -44,19 +47,18 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
         return new EventsViewHolder(view);
     }
 
+
+
     @Override
     public void onBindViewHolder(@NonNull EventsViewHolder holder, int position) {
         ViewGroup viewGroup;
 
-        if(showShimmer) {
+        if(!dataLoaded) {
             holder.shimmerFrameLayout.startShimmer(); //Starts shimmer animation
         } else {
-
-            if(!locales.getMessage().get(position).equals("")){
-                String nomLocal = locales.getMessage().get(position).getNombreLocal();
-                System.out.println("SHIMMER NO INICIADO");
                 holder.shimmerFrameLayout.stopShimmer(); // Stops shimmer animation
                 holder.shimmerFrameLayout.setShimmer(null); // it removes shimmer overlay
+                String nomLocal = locales.getMessage().get(position).getNombreLocal();
                 holder.rlImage.setBackground(ContextCompat.getDrawable(context,R.drawable.event_bg));
                 holder.tvTitle.getLayoutParams().width = RelativeLayout.LayoutParams.WRAP_CONTENT;
                 holder.tvTitle.setBackground(null);
@@ -66,9 +68,10 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(context, locales.getMessage().get(position).getIdLocal().toString(), Toast.LENGTH_SHORT).show();
+                        showDetailOfLocal(locales.getMessage().get(position).getIdLocal().toString());
                     }
                 });
-            }
+
 
 
 
@@ -87,8 +90,16 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsViewHolder> {
 
     }
 
+    private void showDetailOfLocal(String idLocal) {
+        Activity activity = (Activity) context;
+        Intent intent = new Intent(context, LocalDetailActivity.class);
+        context.startActivity(intent);
+        activity.overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+
+    }
+
     @Override
     public int getItemCount() {
-        return showShimmer?SHIMMER_ITEM_NUMBER:locales.getMessage().size(); //after loading shows list SIZE (1);
+        return dataLoaded?locales.getMessage().size():SHIMMER_ITEM_NUMBER; //after loading shows list SIZE (1);
     }
 }

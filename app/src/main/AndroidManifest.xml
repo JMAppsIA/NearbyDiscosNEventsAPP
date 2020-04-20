@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.nearbydiscosnevents">
-    <uses-permission android:name="android.permission.INTERNET"/>
+    package="com.example.nearbydiscosnevents" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,15 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
-        >
-        <activity android:name="com.example.nearbydiscosnevents.MainActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
-        <activity android:name="com.example.nearbydiscosnevents.RegisterActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"/>
+        android:usesCleartextTraffic="true" >
+        <activity android:name=".LocalDetailActivity" >
+        </activity>
         <activity
-            android:name="com.example.nearbydiscosnevents.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

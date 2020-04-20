@@ -40,18 +40,15 @@ public class MainFragment extends Fragment {
     EventsAdapter eventsAdapter;
     IAPI mService;
     View view;
-    boolean shimmer;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        shimmer = true;
         mService = Common.getAPI();
         view = inflater.inflate(R.layout.fragment_main,container,false);
         getListaLocales();
         return view;
 
     }
-
 
     private void getListaLocales() {
 
@@ -67,10 +64,7 @@ public class MainFragment extends Fragment {
                 public void onResponse(Call<ResponseObtainLocals> call, Response<ResponseObtainLocals> response) {
 
                     if(response.isSuccessful()) {
-                        shimmer = false;
-                        mostrarLista(response.body(),shimmer);
-                    } else {
-                        shimmer = true;
+                        mostrarLista(response.body());
                     }
 
                 }
@@ -85,15 +79,16 @@ public class MainFragment extends Fragment {
         }
     }
 
-    private void mostrarLista(ResponseObtainLocals locales, boolean shimmer) {
+    private void mostrarLista(ResponseObtainLocals locales) {
         recyclerView = view.findViewById(R.id.rvMainFragment);
         eventsAdapter = new EventsAdapter(getContext(),locales);
+
         // recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL, false));
         // recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(),2));
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(),LinearLayoutManager.VERTICAL, false));
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(eventsAdapter);
-        eventsAdapter.showShimmer=false;
+        eventsAdapter.dataLoaded=true;
         startLayoutAnimation(recyclerView);
 
 
@@ -105,6 +100,7 @@ public class MainFragment extends Fragment {
         recyclerView.setLayoutAnimation(layoutAnimationController);
         recyclerView.getAdapter().notifyDataSetChanged();
         recyclerView.scheduleLayoutAnimation();
+
 
     }
 }
